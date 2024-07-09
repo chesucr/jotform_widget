@@ -5,27 +5,34 @@
     </head>
     <body>
         <div id="main">
-            <h3>This is my first widget. Update 1</h3>
+            <h3>This is my first widget. Update 2</h3>
             <span id="labelText"></span>
+            <button id="update-field">Update external field (sin cookies)</button>
             <input type="text" id="userInput">
         </div>
         <script type="text/javascript">
             //always subscribe to ready event and implement widget related code
             //inside callback function , it is the best practice while developing widgets
             JFCustomWidget.subscribe("ready", function(){
+                console.log('Widget listo');
+
+                var updateButton = document.getElementById('update-field');
+                updateButton.addEventListener('click', function() {
+                    var otherField = parent.document.querySelector('[name="q38_bancoDe"]');
+                    if (otherField) {
+                        otherField.value = 'Nuevo valor desde el widget';
+                        console.log('Campo actualizado:', otherField.value);
+                    } else {
+                        console.log('Campo no encontrado');
+                    }
+                });
+
                 var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
                 document.getElementById('labelText').innerHTML = label;
-                //subscribe to form submit event
+
                 JFCustomWidget.subscribe("submit", function(){
 
                     // Busca el campo que deseas actualizar
-                    var otherField = document.querySelector('[name="q38_bancoDe"]'); // Reemplaza 'q2_otherField' con el nombre del campo que deseas actualizar
-
-                    if (otherField) {
-                        otherField.value = 'Contenido random de banco de marisqueo';
-                    } else {
-                        alert("Field to update not found");
-                    }
 
                     var msg = {
                         //you should valid attribute to data for JotForm
