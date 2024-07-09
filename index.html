@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
+        <meta charset="UTF-8">
+        <title>My JotForm Widget</title>
     </head>
     <body>
         <div id="main">
-            <h3>This is my first widget. Update 2</h3>
+            <h3>This is my first widget. Update 3</h3>
             <span id="labelText"></span>
             <button id="update-field">Update external field (sin cookies)</button>
             <input type="text" id="userInput">
@@ -16,16 +18,16 @@
             JFCustomWidget.subscribe("ready", function(){
                 console.log('Widget listo');
 
-                var updateButton = document.getElementById('update-field');
-                updateButton.addEventListener('click', function() {
-                    var otherField = parent.document.querySelector('[name="q38_bancoDe"]');
-                    if (otherField) {
-                        otherField.value = 'Nuevo valor desde el widget';
-                        console.log('Campo actualizado:', otherField.value);
-                    } else {
-                        console.log('Campo no encontrado');
-                    }
-                });
+                // var updateButton = document.getElementById('update-field');
+                // updateButton.addEventListener('click', function() {
+                //     var otherField = parent.document.querySelector('[name="q38_bancoDe"]');
+                //     if (otherField) {
+                //         otherField.value = 'Nuevo valor desde el widget';
+                //         console.log('Campo actualizado:', otherField.value);
+                //     } else {
+                //         console.log('Campo no encontrado');
+                //     }
+                // });
 
                 var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
                 document.getElementById('labelText').innerHTML = label;
