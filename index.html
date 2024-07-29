@@ -24,8 +24,11 @@
                     return "desktop";
                 }
 
-                // Send value to JotForm
-                JFCustomWidget.sendData(getDeviceType());
+                var msg = {
+                    value: getDeviceType()
+                }
+
+                JFCustomWidget.sendData(msg);
                 document.getElementById('agent_info').innerHTML = getDeviceType();
             });
         </script>
