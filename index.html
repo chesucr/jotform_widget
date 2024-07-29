@@ -6,51 +6,27 @@
     <body>
         <div id="main">
             <h3>This is my first widget.</h3>
-            <span id="labelText"></span>
-            <input type="text" id="userInput">
             <span id="agent_info"></span>
         </div>
         <script type="text/javascript">
             //always subscribe to ready event and implement widget related code
             //inside callback function , it is the best practice while developing widgets
             JFCustomWidget.subscribe("ready", function(){
-                var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
-                document.getElementById('labelText').innerHTML = label;
 
-                // Add event listener for real-time updates
-                document.getElementById('userInput').addEventListener('input', function() {
+                function getDeviceType() {
+                    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-                    function getDeviceType() {
-                        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-                        // Check for mobile device keywords
-                        if (/android/i.test(userAgent) ||
-                            /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                            return "phone";
-                        }
-                        return "desktop";
+                    // Check for mobile device keywords
+                    if (/android/i.test(userAgent) ||
+                        /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                        return "phone";
                     }
+                    return "desktop";
+                }
 
-                    var msg = {
-                        valid: true,
-                        value: document.getElementById('userInput').value
-                    };
-                    // Send value to JotForm
-                    JFCustomWidget.sendData(msg);
-                    document.getElementById('agent_info').innerHTML = getDeviceType();
-                });
-
-                //subscribe to form submit event
-                JFCustomWidget.subscribe("submit", function(){
-                    var msg = {
-                        //you should valid attribute to data for JotForm
-                        //to be able to use youw widget as required
-                        valid: true,
-                        value: document.getElementById('userInput').value
-                    }
-                    // send value to JotForm
-                    JFCustomWidget.sendSubmit(msg);
-                });
+                // Send value to JotForm
+                JFCustomWidget.sendData(getDeviceType());
+                document.getElementById('agent_info').innerHTML = getDeviceType();
             });
         </script>
     </body>
