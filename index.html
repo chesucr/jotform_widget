@@ -5,7 +5,7 @@
     </head>
     <body>
         <div id="main">
-            <h3>This is my first widget.</h3>
+            <h3>Agent information: "phone" or "desktop".</h3>
             <span id="agent_info"></span>
         </div>
         <script type="text/javascript">
@@ -16,7 +16,6 @@
                 function getDeviceType() {
                     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-                    // Check for mobile device keywords
                     if (/android/i.test(userAgent) ||
                         /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                         return "phone";
