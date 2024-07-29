@@ -8,6 +8,7 @@
             <h3>This is my first widget.</h3>
             <span id="labelText"></span>
             <input type="text" id="userInput">
+            <span id="agent_info"></span>
         </div>
         <script type="text/javascript">
             //always subscribe to ready event and implement widget related code
@@ -15,6 +16,18 @@
             JFCustomWidget.subscribe("ready", function(){
                 var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
                 document.getElementById('labelText').innerHTML = label;
+
+                // Add event listener for real-time updates
+                document.getElementById('userInput').addEventListener('input', function() {
+                    var msg = {
+                        valid: true,
+                        value: document.getElementById('userInput').value
+                    };
+                    // Send value to JotForm
+                    JFCustomWidget.sendData(msg);
+                    document.getElementById('agent_info').innerHTML = msg.value;
+                });
+
                 //subscribe to form submit event
                 JFCustomWidget.subscribe("submit", function(){
                     var msg = {
