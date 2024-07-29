@@ -1,53 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js"></script>
-        <meta charset="UTF-8">
-        <title>My JotForm Widget</title>
     </head>
     <body>
         <div id="main">
-            <h3>This is my first widget. Update 4</h3>
+            <h3>This is my first widget.</h3>
             <span id="labelText"></span>
-            <button id="update-field">Update external field (sin cookies)</button>
-            <input type="file" id="fileInput" name="q3_fileUpload" accept="image/*">
-            <input type="hidden" id="exifDate" name="q4_exifDate">
-            <input type="hidden" id="exifCamera" name="q5_exifCamera">
+            <input type="text" id="userInput">
         </div>
         <script type="text/javascript">
             //always subscribe to ready event and implement widget related code
             //inside callback function , it is the best practice while developing widgets
             JFCustomWidget.subscribe("ready", function(){
-                console.log('Widget listo');
-
-                document.getElementById('fileInput').addEventListener('change', function(event) {
-                    var file = event.target.files[0];
-                    if (file) {
-                        var reader = new FileReader();
-                        reader.onload = function(e) {
-                            EXIF.getData(file, function() {
-                                var exifData = EXIF.pretty(this);
-                                if (exifData) {
-                                    var exifDate = EXIF.getTag(this, "DateTimeOriginal");
-                                    var exifCamera = EXIF.getTag(this, "Model");
-                                    document.getElementById('exifDate').value = exifDate || '';
-                                    document.getElementById('exifCamera').value = exifCamera || '';
-                                }
-                            });
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-
                 var label = JFCustomWidget.getWidgetSetting('QuestionLabel');
                 document.getElementById('labelText').innerHTML = label;
-
+                //subscribe to form submit event
                 JFCustomWidget.subscribe("submit", function(){
                     var msg = {
+                        //you should valid attribute to data for JotForm
+                        //to be able to use youw widget as required
                         valid: true,
-                        value: document.getElementById('fileInput').value
+                        value: document.getElementById('userInput').value
                     }
+                    // send value to JotForm
                     JFCustomWidget.sendSubmit(msg);
                 });
             });
