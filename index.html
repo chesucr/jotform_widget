@@ -19,13 +19,25 @@
 
                 // Add event listener for real-time updates
                 document.getElementById('userInput').addEventListener('input', function() {
+
+                    function getDeviceType() {
+                        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+                        // Check for mobile device keywords
+                        if (/android/i.test(userAgent) ||
+                            /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                            return "phone";
+                        }
+                        return "desktop";
+                    }
+
                     var msg = {
                         valid: true,
                         value: document.getElementById('userInput').value
                     };
                     // Send value to JotForm
                     JFCustomWidget.sendData(msg);
-                    document.getElementById('agent_info').innerHTML = msg.value;
+                    document.getElementById('agent_info').innerHTML = getDeviceType();
                 });
 
                 //subscribe to form submit event
