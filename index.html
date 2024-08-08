@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <h3>Agent information: "phone" or "desktop".</h3>
+            <span id="agent_info"></span>
+        </div>
+        <script type="text/javascript">
+            //always subscribe to ready event and implement widget related code
+            //inside callback function , it is the best practice while developing widgets
+            JFCustomWidget.subscribe("ready", function(){
+
+                function getDeviceType() {
+                    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+                    if (/android/i.test(userAgent) ||
+                        /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                        return "phone";
+                    }
+                    return "desktop";
+                }
+
+                var msg = {
+                    value: getDeviceType()
+                }
+
+                JFCustomWidget.sendData(msg);
+                document.getElementById('agent_info').innerHTML = getDeviceType();
+            });
+        </script>
+    </body>
+</html>
