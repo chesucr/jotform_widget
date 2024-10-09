@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget de Ubicación GPS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ubicación GPS del Móvil</h2>
+
+    <!-- Campos de solo lectura para mostrar latitud y longitud -->
+    <label for="latitud">Latitud:</label>
+    <input type="text" id="latitud" name="latitud" readonly>
+
+    <label for="longitud">Longitud:</label>
+    <input type="text" id="longitud" name="longitud" readonly>
+
+    <!-- Mapa de Google Maps para mostrar la ubicación -->
+    <div id="map">El mapa aparecerá aquí</div>
+
+    <script>
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        function mostrarUbicacion(posicion) {
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+
+            // Asignar valores a los campos de texto
+            document.getElementById('latitud').value = latitud;
+            document.getElementById('longitud').value = longitud;
+
+            // Crear el string en formato {'lon': longitud, 'lat': latitud}
+            var ubicacionString = `{'lon': ${longitud}, 'lat': ${latitud}}`;
+
+            // Mostrar la ubicación en un mapa de Google Maps
+            var map = document.getElementById('map');
+            var urlMapa = `https://maps.google.com/maps?q=${latitud},${longitud}&z=15&output=embed`;
+            map.innerHTML = `<iframe width="100%" height="100%" src="${urlMapa}" frameborder="0" allowfullscreen></iframe>`;
+
+            // Enviar el string con latitud y longitud al formulario de JotForm
+            window.parent.postMessage({
+                action: 'updateWidget',
+                ubicacion: ubicacionString
+            }, '*');
+        }
+
+        function mostrarError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("El usuario denegó el permiso para la geolocalización.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("La información de la ubicación no está disponible.");
+                    break;
+                case error.TIMEOUT:
+                    alert("La solicitud para obtener la ubicación ha caducado.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Se ha producido un error desconocido.");
+                    break;
+            }
+        }
+
+        // Llama a la función para obtener la ubicación
+        obtenerUbicacion();
+    </script>
+</body>
+</html>
