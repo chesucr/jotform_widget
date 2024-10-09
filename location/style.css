@@ -5,7 +5,7 @@
     margin: 20px 0;
     border: 1px solid #A61E24;
     border-radius: 5px;
-    display: block;
+    display: none;
 }
 
 .hidden {
