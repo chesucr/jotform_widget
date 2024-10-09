@@ -1,24 +1,93 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-
-    <link type="text/css" rel="stylesheet" href="css/select2.min.css" />
-    <link type="text/css" rel="stylesheet" href="css/styles.min.css" />
-
-    <script src="https://cdn.jotfor.ms/s/umd/latest/for-custom-widgets.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-
-    <script src="js/select2.min.js"></script>
-    <script src="js/addition.select2.min.js"></script>
-    <script src="js/scripts.min.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Dinámicos con Select2</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Select2 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- Select2 JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
-
 <body>
-    <p>Hola</p>
-    <div id="dropdownsContainer"></div>
-</body>
+    <h1>Dropdown Dinámicos con Select2</h1>
 
+    <!-- Dropdowns -->
+    <select id="level1-dropdown" class="select2">
+        <option value="">Seleccione Nivel 1</option>
+    </select>
+
+    <select id="level2-dropdown" class="select2" disabled>
+        <option value="">Seleccione Nivel 2</option>
+    </select>
+
+    <select id="level3-dropdown" class="select2" disabled>
+        <option value="">Seleccione Nivel 3</option>
+    </select>
+
+    <script>
+        $(document).ready(function() {
+            // Inicializa Select2 en los select
+            $('.select2').select2();
+
+            // Objeto que contiene la jerarquía procesada
+            const hierarchy = {
+                "Level1": {
+                    "Level2": ["Level3", "Suevos (Fabrica Artabra) (Zona K)", "Suevos (Porto) (Zona K)", "Suevos (Praia Suevos) (Zona K)"],
+                    "Baldaio \"Fonte de Santa Helena\"": ["A Entrada", "As Dunas", "As Pontes", "Banco 1-3", "Banco A", "Banco C", "Lagoa de Baldaio - Zona de Autorización", "Zona de Autorización: Lagoa Interna (Zona 4)", "Zona de Autorización: Lagoa Interna (Zona 6)"]
+                }
+            };
+
+            // Poblamos el primer dropdown (Level 1)
+            const level1Dropdown = $('#level1-dropdown');
+            $.each(hierarchy, function(level1Key, level2Obj) {
+                level1Dropdown.append(new Option(level1Key, level1Key));
+            });
+            level1Dropdown.trigger('change.select2');
+
+            // Cuando se selecciona una opción en el Level 1
+            level1Dropdown.change(function() {
+                const selectedLevel1 = $(this).val();
+                const level2Dropdown = $('#level2-dropdown');
+                const level3Dropdown = $('#level3-dropdown');
+
+                // Reset y deshabilitar dropdowns
+                level2Dropdown.empty().append(new Option('Seleccione Nivel 2', '')).prop('disabled', true);
+                level3Dropdown.empty().append(new Option('Seleccione Nivel 3', '')).prop('disabled', true);
+                level2Dropdown.trigger('change.select2');
+                level3Dropdown.trigger('change.select2');
+
+                if (selectedLevel1) {
+                    // Poblar Level 2 basado en la selección del Level 1
+                    $.each(hierarchy[selectedLevel1], function(level2Key, level3Array) {
+                        level2Dropdown.append(new Option(level2Key, level2Key));
+                    });
+                    level2Dropdown.prop('disabled', false);
+                    level2Dropdown.trigger('change.select2');
+                }
+            });
+
+            // Cuando se selecciona una opción en el Level 2
+            $('#level2-dropdown').change(function() {
+                const selectedLevel1 = $('#level1-dropdown').val();
+                const selectedLevel2 = $(this).val();
+                const level3Dropdown = $('#level3-dropdown');
+
+                level3Dropdown.empty().append(new Option('Seleccione Nivel 3', '')).prop('disabled', true);
+                level3Dropdown.trigger('change.select2');
+
+                if (selectedLevel2) {
+                    // Poblar Level 3 basado en la selección del Level 2
+                    $.each(hierarchy[selectedLevel1][selectedLevel2], function(index, level3Item) {
+                        level3Dropdown.append(new Option(level3Item, level3Item));
+                    });
+                    level3Dropdown.prop('disabled', false);
+                    level3Dropdown.trigger('change.select2');
+                }
+            });
+        });
+    </script>
+</body>
 </html>

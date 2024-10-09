@@ -1,0 +1,842 @@
+A Coruña
+ A Coruña
+  A Baixada-1-2
+  As Maruxas Grande (Sur-Interior)
+  As Maruxas Pequena
+  As Maruxas Pequena - Gancha a Pe
+  Barrañán (Praia do Reloxeiro) (Zona F)
+  Bens (Illa Redonda) (Zona Ll)
+  Bens (Praia sa Refinería) (Zona L)
+  Caion (Praia da Salseira) (Zona E)
+  Canle do Canijote - Gancha A Pe
+  Leira (Leira-Caion)  (Zona D)
+  Leira (Zona B)
+  Leira (Zona C)
+  Marxe Dereita
+  Marxe Dereita - Gancha A Pe
+  Marxe Esquerda - Gancha A Pe
+  O Bastiagueiro Pequeno
+  O Caínzo
+  O Carniceiro
+  Orzán
+  Os Castelos (Dereita-1) (Zona I)
+  Os Castelos (Esquerda) (Zona I)
+  Parque de Abella
+  Parque do Carniceiro
+  Parque Ponte de Pasaxe
+  Pedra do Sal (Zona A)
+  Portiño
+  Praia Balcobo Pequeno - Pedra Herba
+  Praia de Sta. Cristina
+  Praia Sabón (Térmica) (Zona J)
+  Pta. da Praia de Sta. Cristina
+  Riazor
+  Ripibello (Zona H)
+  San Amaro
+  Suevos (A Redonda) (Zona K)
+  Suevos (Fabrica Artabra) (Zona K)
+  Suevos (Porto) (Zona K)
+  Suevos (Praia Suevos) (Zona K)
+ Baldaio "Fonte de Santa Helena"
+  A Entrada
+  As Dunas
+  As Pontes
+  Banco 1-3
+  Banco A
+  Banco C
+  Lagoa de Baldaio - Zona de Autorización
+  Zona de Autorización: Lagoa Interna (Zona 4)
+  Zona de Autorización: Lagoa Interna (Zona 6)
+ Camariñas
+  Ariño
+  Canle Río da Ponte
+  Esda. de A Vasa
+  Paxariña
+  Praia de Area da Vila
+  Praia de Lingunde
+  Pta. Gallego-Fond. Pozo
+  Pta. Roda-Pta. Lago
+ Camelle
+  A Barda-1-2
+  A Lagoa
+  A Señora
+  A Tiños
+  Area Das Cunchas
+  Area Das Vacas-1-2
+  Arou
+  As Lameiras-1-2
+  Aviño
+  Balares-1-2
+  Balares-3-4
+  Cabana
+  Castelo Barca de Maje
+  Coido Beo Esteiro
+  Coido Seaia
+  Dos Rías-1
+  Dos Rías-2-3
+  Fonte Fría
+  Fustín
+  Hermida-1-2
+  Illote Dos Cagallóns
+  Insua
+  Lobeiras
+  Malpica
+  O Besugueiro
+  O Cabezo
+  Os Ingleses
+  Os Muíños
+  Paio Pedreira
+  Pradeiras
+  Praia de Area Maior
+  Praia de Arnela
+  Praia de Barizo-1-2
+  Praia de Beo-1-2
+  Praia de Camelle-1-3
+  Praia de Esteiro-1-3
+  Praia de Laxe
+  Praia de Niñóns-1
+  Praia de Niñóns-2-3
+  Praia de Osmo
+  Praia de Razo-1-2
+  Praia de Soesto-1-2
+  Praia de Torradas
+  Praia de Traba
+  Praia do Trece
+  Puntal do Curro
+  Rebordelo
+  Rega-1-2
+  Río Covo
+  Ríos
+  Sabadelle
+  San Miro-1-2
+  San Pedro
+  Seaia-1
+  Sta. Mariña
+  Sta. Mariña-1-2
+  Taín
+  Xareiro
+ Corme
+  A Barda-1-2
+  A Lagoa
+  A Señora
+  A Tiños
+  Area Das Cunchas
+  Area Das Vacas-1-2
+  Arou
+  As Lameiras-1-2
+  Aviño
+  Balares-1-2
+  Balares-3-4
+  Cabana
+  Castelo Barca de Maje
+  Coido Beo Esteiro
+  Coido Seaia
+  Dos Rías-1
+  Dos Rías-2-3
+  Fonte Fría
+  Fustín
+  Hermida-1-2
+  Illote Dos Cagallóns
+  Insua
+  Lobeiras
+  Malpica
+  O Besugueiro
+  O Cabezo
+  Os Ingleses
+  Os Muíños
+  Paio Pedreira
+  Pradeiras
+  Praia de Area Maior
+  Praia de Arnela
+  Praia de Barizo-1-2
+  Praia de Beo-1-2
+  Praia de Camelle-1-3
+  Praia de Esteiro-1-3
+  Praia de Laxe
+  Praia de Niñóns-1
+  Praia de Niñóns-2-3
+  Praia de Osmo
+  Praia de Razo-1-2
+  Praia de Soesto-1-2
+  Praia de Torradas
+  Praia de Traba
+  Praia do Trece
+  Puntal do Curro
+  Rebordelo
+  Rega-1-2
+  Río Covo
+  Ríos
+  Sabadelle
+  San Miro-1-2
+  San Pedro
+  Seaia-1
+  Sta. Mariña
+  Sta. Mariña-1-2
+  Taín
+  Xareiro
+ Espasante
+  Antigo Parque de Daniel
+  Antigo Parque de Ortigueira S.L.
+  Antigo Parque Muiños-1
+  Barbos
+  Canle Central
+  Canle de Entrada
+  Cano Cabalar
+  Cano Cabalar (Norte)
+  Cano Chico
+  Cano de Laxas
+  Cano Ponte Baleo-1-3
+  Celtigos-1-2
+  Chouseira-1-2
+  Lagarea
+  Laxas
+  Meseta1-2
+  Mexilloal
+  Os Castros (Praia Fabrega)
+  Pena Furada
+  Picon
+  Praia Cabalar
+  Praia de Morouzos
+  Praia Furada (Este)
+  Praia Furada (Oeste)
+  Raias1-2-3
+  Senra
+  Sta. Eulalia
+ Ferrol
+  Cabana-Malata
+  Esda. de Caranza (Pie)
+  Gandara I-Ii
+  Gandara Iib
+  O Couto
+  Praia Caranza-Pta. Montón(I-Ii)
+  Praia da Graña
+  Praia de San Felipe
+ Lira-Carnota
+  Portocubelo
+  Praia da Berberecheira 1-2
+  Praia de A Lagoa
+  Praia de Carnota-Caldebarcos-1
+ Malpica de Bergantiños
+  A Barda-1-2
+  A Lagoa
+  A Señora
+  A Tiños
+  Area Das Cunchas
+  Area Das Vacas-1-2
+  Arou
+  As Lameiras-1-2
+  Aviño
+  Balares-1-2
+  Balares-3-4
+  Cabana
+  Castelo Barca de Maje
+  Coido Beo Esteiro
+  Coido Seaia
+  Dos Rías-1
+  Dos Rías-2-3
+  Fonte Fría
+  Fustín
+  Hermida-1-2
+  Illote Dos Cagallóns
+  Insua
+  Lobeiras
+  Malpica
+  O Besugueiro
+  O Cabezo
+  Os Ingleses
+  Os Muíños
+  Paio Pedreira
+  Pradeiras
+  Praia de Area Maior
+  Praia de Arnela
+  Praia de Barizo-1-2
+  Praia de Beo-1-2
+  Praia de Camelle-1-3
+  Praia de Esteiro-1-3
+  Praia de Laxe
+  Praia de Niñóns-1
+  Praia de Niñóns-2-3
+  Praia de Osmo
+  Praia de Razo-1-2
+  Praia de Soesto-1-2
+  Praia de Torradas
+  Praia de Traba
+  Praia do Trece
+  Puntal do Curro
+  Rebordelo
+  Rega-1-2
+  Río Covo
+  Ríos
+  Sabadelle
+  San Miro-1-2
+  San Pedro
+  Seaia-1
+  Sta. Mariña
+  Sta. Mariña-1-2
+  Taín
+  Xareiro
+ Miño
+  Bañobre
+  Bañobre (Estr. A)
+  Carabel
+  Castelo
+  Couce-I
+  Cuco
+  Ememasa-(I-Iii)
+  Espiñeira1-2
+  Parque de Alpompor (Antigo)-Ponte do Porco
+  Parque María Monteiro Sabín
+  Parque Poliparco Manso Varela
+  Pedrido
+  Ponte do Porco1-2
+  Porto-Praia Pequena1-2
+  Praia da Alameda
+  Praia Das Vacas1-2
+  Praia de O Pedrido
+  Souto1-2
+ Muros
+  A Viña (Praia de Avilleira)
+  Desembocadura Río Maior
+  Liñares (Praia da Avilleira)
+  Praia da Virxe
+  Praia de Avilleira
+  Praia de Castillo
+  Praia de Esteiro
+  Salgueiros (Praia da Avilleira)
+  Ventín
+ Ntra Sra de las Arenas de Fisterra
+  Arnela
+  Langosteira-1
+  Lires
+  Mar de Fora
+  Rostro
+  Sardiñeiro-1
+ Nuestra Señora do Carmen de Cariño
+  Altos da Caleira
+  Cascabellal-Macelos
+  Esda. de Esteiro
+  Mea
+  Novela
+  Pena Redonda
+  Petón
+  Poza da Xelfa
+  Praia de Cabalos
+  Praia de Cariño
+  Praia de Figueiras
+  Pta. de Fornelos
+  Puntal
+  Saiña
+  Sismundi
+  Sismundi-O Forno
+ O Barqueiro - Bares
+  A Caibanca
+  A Canaleta
+  A Escaleira
+  A Lama
+  A Laxe
+  A Moreira
+  Cabo
+  O Cereixal
+  O Lamón
+  Os Barcos
+  Pena Ourada-Rego da Forca
+  Praia de Vilela
+  Pta. da Barra (Fabriquín)-Pena do Xeixo (Praia Salgueira)
+  Rampa de San Fiz-Pta. Preguntoiro
+  Rego da Forca-Ponte Vella
+ O Pindo
+  Arnela
+  Lires
+  Mar de Fora
+  Portocubelo
+  Poza Das Centolas
+  Praia da Berberecheira 1-2
+  Praia de A Lagoa
+  Praia de Area Blanca
+  Praia de Carnota-Caldebarcos-1
+  Praia de Cornabecerra E O Portiño
+  Praia de San Pedro
+  Pta. Caldebarcos
+  Rostro
+ Palmeira
+  Praia da Corna
+  Praia de Cambra
+  Praia de Cruces
+  Praia de Insuela
+ Pobra do Caramiñal
+  Areal
+  Cabío
+  Insuas da Ribeiriña
+  Raposiños
+ Ría de Arousa-Abanqueiro
+  Pedra Rubia 1-2
+  Praia de Fontenla
+  Praia de Fontenla-3
+  Praia de Portomouro
+  Pta. de Fontenla
+  Pta. de Portomouro-1
+ Río Anllóns
+  Caduleira
+  Canle Ourixeira
+  Lodeiro
+  O Pendón
+  Ourixeira
+  Petrallo
+  Sartaña- Zona de Autorización
+ Sada
+  Praia de Sada
+ San Bartolomé de Noia
+  A Seca de Broña
+  Barquiña
+  Boa
+  Esda. de Testal
+  Esda. Escollera
+  Mexilloeira
+  Misela-1-2
+  Ponte de Ceilán
+  Portosiavo
+  Praia de Broña
+  Praia Testal
+  Saíñas-Corveiros
+  San Cosme
+ San Telmo de Mugardos
+  Baixada Lastre de Noville
+  Campo de As Pegas
+  Marea Morta de A Barca
+  Marea Morta de Noville
+  Nande
+  O Baño (Enseada)
+  Os Lastres
+  Praia da Bestarruza
+  Praia de Mugardos
+  Pta. Redonda
+  Sta. Lucía
+  Zona de Seijo
+ San Telmo de Porto do Son
+  Arealonga-1
+  Cabeiro-Porto do Son-1
+  Illa do Mar-1
+  Porcalleira-1
+  Porto do Son-Arnela-1
+  Porto Nadelas-1
+  Praia de Pementa-1
+  Praia do Canedo-1
+  Río Sieiro-1
+ Santa María da Atalaia de Laxe
+  A Barda-1-2
+  A Lagoa
+  A Señora
+  A Tiños
+  Area Das Cunchas
+  Area Das Vacas-1-2
+  Arou
+  As Lameiras-1-2
+  Aviño
+  Balares-1-2
+  Balares-3-4
+  Cabana
+  Castelo Barca de Maje
+  Coido Beo Esteiro
+  Coido Seaia
+  Dos Rías-1
+  Dos Rías-2-3
+  Fonte Fría
+  Fustín
+  Hermida-1-2
+  Illote Dos Cagallóns
+  Insua
+  Lobeiras
+  Malpica
+  O Besugueiro
+  O Cabezo
+  Os Ingleses
+  Os Muíños
+  Paio Pedreira
+  Pradeiras
+  Praia de Area Maior
+  Praia de Arnela
+  Praia de Barizo-1-2
+  Praia de Beo-1-2
+  Praia de Camelle-1-3
+  Praia de Esteiro-1-3
+  Praia de Laxe
+  Praia de Niñóns-1
+  Praia de Niñóns-2-3
+  Praia de Osmo
+  Praia de Razo-1-2
+  Praia de Soesto-1-2
+  Praia de Torradas
+  Praia de Traba
+  Praia do Trece
+  Puntal do Curro
+  Rebordelo
+  Rega-1-2
+  Río Covo
+  Ríos
+  Sabadelle
+  San Miro-1-2
+  San Pedro
+  Seaia-1
+  Sta. Mariña
+  Sta. Mariña-1-2
+  Taín
+  Xareiro
+ Santa María do Mar de Cedeira
+  Esda. de Pantin
+  Esda. do Esteiro
+  Esda. do Esteiro (Norte)
+  Esda. do Esteiro (Sur)
+  Praia de Cedeira (Magdalena)
+  Praia de Vilarrube (Loira)
+ Santiago Apóstol de Barallobre
+  Neda
+  Praia de Barallobre
+  Praia de Maniños
+ Virxe da Barca de Muxía
+  Pta. Roda-Pta. Lago
+ Virxe do Carmen de Cabo de Cruz
+  A Ladeira do Chazo
+  Ladeira de Triñans
+  Mañóns
+  Praia de Barraña
+  Praia de Barraña-Arrecife da Marxa
+  Retorta
+ Virxe do Carmen de Corcubión
+  Estorde
+  Ezaro
+  Praia de Cee
+  Pria de Corcubión
+  Sicar
+ Virxe do Carmen de Pontedeume
+  A Pillada-A Pía
+  Canle do Baroc
+  Croa Grande 1-2-3
+  Croa Pequena
+  Dia Oito
+  O Fabal
+  Peregil-1-2
+  Zopazos
+ Virxe do Carmen de Rianxo
+  As Cunchas
+  Colexios
+  Grenla
+  Iñobre-Porto
+  O Furado
+  Peirao de Rianxo
+  Praia da Ria de Beluso
+  Praia de A Seveira
+  Praia de A Torre
+  Praia de Agañán
+  Praia de Agueiros
+  Praia de Bodión
+  Praia de Ladeira de Leiro
+  Praia de Ladeira de Quinteiro
+  Praia de Pereira Torta
+  Praia de Sertaxe
+  Praia de Sete Fogas
+  Praia de Tanxil-Quenxo
+  Praia de Tronco
+  Praia do Porrón
+  Rinlo-Longaras
+Lugo
+ Foz
+  Altar
+  Fondas 1-2
+  Fontorto-1
+  O Taro-1
+  O Taro-2-3
+ O Vicedo
+  Creximil
+  Fomento-1
+  Lombo Das Navallas
+  Mexilloeira (Pontes)
+  Mexilloeira-Pta. Espiñeira
+  Moledos
+  Praia de Abrela
+  Pta. Espiñeira-San Roque (Pta. Espiñeira)
+  Pta. Espiñeira-San Roque (San Roque)
+  Villabril-1-2
+ Ribadeo
+  A Vilavella-As Aceñas
+  As Aceñas
+  O Tesón (Norte)
+  O Tesón (Sur)
+  Praia Dos Bloques
+  Pta. Salon-O Puntal
+  Taro Frente A Chonos
+  Taro Frente A Mirasol
+  Taro Frente As Aceñas
+  Tesón Dos Chonos
+ Santiago Apóstol de Celeiro
+  Canle
+  Entrepontes
+  Misericordia
+  Os Castelos-Praia Abrela
+  Praia de Abrela
+  Praia de Area
+  Praia de Celeiro (Pantalán)
+  Praia de Covas
+  Praia de Sacido
+Pontevedra
+ Aldán-Hío
+  Area Cova (Pena Rubia-Cova Balea)
+  Menduiña (Laxe do Aire)
+  Praia San Cibrán
+  Praia San Cibrán (Parque)
+  Praia Vilariño (Río Esteiro)
+  Praia Vilariño (Vilariño)
+  Pta. Alada (Area Brava)
+  Pta. Couso
+  San Cibrán
+  Vilariño
+  Vilariño (Pta. Testada)
+ La Anunciada de Baiona
+  Barbeira
+  Boca da Foz
+  Foz do Miñor
+  Paseo da Lonxa 1-2
+  Paseo da Lonxa-Ribeiriña-3
+  Ribeira
+  Sta. Marta
+ La Pastoriza de Vilanova
+  As Carballas-O Bote
+  As Sinas-1
+  As Sinas-2
+  Castelete-O Rego
+  Esteiro de Vilamaior
+  Illa Currás-O Esteiro
+ Ría de Vigo
+  Areiña
+  Canido
+  Pedra Oliveira
+  Praia de Mende
+  Sobreira
+ San André de Lourizán
+  A Canteira
+  Ameixal-1
+  Campelo
+  Combarro
+  Don Bernardo
+  Fontemaior
+  Ministro
+  O Carballo
+  O Covelo
+  O Laño
+  Ouriceira
+  Placeres-1-2
+  Polvorin
+  Ponte da Autopista (Enbaixo)
+  Ponte da Autopista (S)
+  Puntada
+  Raxo
+  Sinas
+  Xiorto
+ San Antonio de Cambados
+  Fefiñáns
+  O Sarrido1-2
+  Pantalán
+  Pta. Tragove-Rego do Alcalde
+  Saco de Fefiñáns
+  Tubos
+ San Francisco de Vigo
+  Alcabre
+  Bouzas
+  Cabo Estai-1-2
+  Etea
+  Serral
+  Toralla
+  Toralla (Ponte)
+  Vulcano
+ San Gregorio de Raxó
+  A Canteira
+  Ameixal-1
+  Campelo
+  Combarro
+  Don Bernardo
+  Fontemaior
+  Ministro
+  O Carballo
+  O Covelo
+  O Laño
+  Ouriceira
+  Placeres-1-2
+  Polvorin
+  Ponte da Autopista (Enbaixo)
+  Ponte da Autopista (S)
+  Puntada
+  Raxo
+  Sinas
+  Xiorto
+ San José de Cangas
+  A Sinal
+  Congorza
+  Illa Dos Ratos
+  Masso
+ San Juan de Redondela
+  A Barra/Praia Vella (A Telleira)-2
+  A Barra/Praia Vella (EntrerRíos)-3
+  A Barra/Praia Vella (Varadero)-1
+  A Portela (A Rebouza)
+  A Portela-1-2
+  A Punta do Cabo
+  A Telleira
+  Arealonga
+  Cabanas
+  Cobreiro
+  Illa de San Simon
+  Lonxa-Loureiro
+  O Regato
+  Porto Cedeira
+  Praia de Cesantes
+  Sobreiro-Soutoxusto
+ San Martiño de Moaña
+  A Tella-1
+  Aradoiro
+  Arroas-1
+  Arroas-2
+  Borna-A Tella
+  Borna-Zona(1-3)
+  Canabal-Peirao Tiran
+  Con
+  Domaio (Solenidos)
+  Fandicosta
+  Meira
+  Meira (Solenidos)
+  O Cocho-1-2
+  Praia da Xunqueira
+  Praia de Domaio
+  Rande
+  Tiran
+  Xunqueira (Solenidos)
+ San Martiño de O Grove
+  A Fianteira
+  Arnosa
+  Cabreiron
+  Casa da Toxa (P)
+  Con Roibo
+  Correlo-Illote Insuíña (1-2)
+  Ganchiño
+  Hotel
+  Illeiriña
+  Illote de Beiro
+  Illote de Marma
+  Illote Touris
+  Insuiñas
+  Lavaxeira
+  Loraña-Sinal
+  Lordelo-Cubreiro
+  Moreiras
+  Peralto-A Cruz
+  Piscina
+  Porto de Meloxo
+  Rego do Sol
+  Rons (P)
+  Saíñas
+  San Bastian
+  Teixeira
+  Terra de Porto Ou Mina
+  Touris de Dentro
+  Via Norte Ou Via de Abaixo
+  Via Sur Ou Via de Arriba
+ San Roque de Portonovo
+  Praia Canelas Zona 4
+  Praia de Bascuas Zona 2
+  Praia Faxilda/Pragueiras Ou Pociñas Zona 1
+  Praia Montalvo Zona 3
+ San Telmo de Pontevedra
+  A Canteira
+  Ameixal-1
+  Campelo
+  Combarro
+  Don Bernardo
+  Fontemaior
+  Ministro
+  O Carballo
+  O Covelo
+  O Laño
+  Ouriceira
+  Placeres-1-2
+  Polvorín
+  Ponte da Autopista (Enbaixo)
+  Ponte da Autopista (S)
+  Puntada
+  Raxo
+  Sinas
+  Xiorto
+ San Xulián da Illa de Arousa
+  A Canteira-1
+  A Salga-Avilleira
+  Area de Secada-Pta. Campelo-1-2
+  As Aceñas-1
+  Avilleira
+  Camaxe-Salinas-1
+  Comboa
+  Espiñeiro
+  Gradin
+  Lagartiño
+  Mallón
+  O Campo
+  Os Espiños
+  Praia A Arnela-1
+  Praia de Xastelas-1
+  Praia do Bao-1
+  Praia do Barco
+  Praia do Peixe
+  Pta. Aguiuncho-Pta. Furado
+  Pta. Campelo-Campiño
+  Pta. Quilma-Espiñeiro
+  Pta. Revello
+  Semiño-Testos
+  Testos-Area de Secada
+ Santa María do Porto de Marín
+  Fontemaior
+ Santa Rosalía de Sanxenxo
+  Fontemaior
+  Praia de Area de Agra Zona 2
+  Praia de Areas Zona 3
+  Praia de Barreiros Zona 5
+  Praia de Nanín Zona 4
+  Praia de Pampaido Zona 1
+  Praia de Silgar Zona 7
+  Pria de Carabuxeira Zona 6
+ Santiago Apóstol de Carril
+  A Fangueira
+  Lombos de Ulla
+  Pedra do Pico
+  Praia de Compostela
+ Vilaboa
+  Cabalo
+  Cabalo (Poliqueto)
+  Calera
+  Cunchido
+  Deilan
+  Larache
+  Pedra Oliveira
+  Pta. San Adrian
+  Río Maior
+  San Adrian
+ Virgen del Rosario de Vilaxoán
+  Esteiro do Rial (Fora)
+  Esteiro do Rial-Interior Enseada
+  Praia de Borreiros-1
+  Praia de Canelas-1
+  Praia de Castelete-1
+  Praia de Coron Ou Aduana-1
+  Praia de Preguntoiro-1
+  Praia de Saíñas-1
+ Virxe do Carmen de Arcade
+  Area Nova
+  Cunchido
+  Estralo (Zona Arcade)
+  La Conejera
+  Larache
+  Malvinas
+  Pedra Oliveira
+  Puntal-1
+  Puntal-2
+  Puntal-4
+  Río Das Alvedosas-1
+  Río de Paredes-1
+  Río de Paredes-2
+  Río do Medio1-3
+
