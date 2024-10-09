@@ -1,9 +1,9 @@
 #error-banner {
-    background-color: #ffcccb;
-    color: #d8000c;
+    background-color: #DC2626;
+    color: white;
     padding: 10px;
     margin: 20px 0;
-    border: 1px solid #d8000c;
+    border: 1px solid #A61E24;
     border-radius: 5px;
     display: block;
 }
