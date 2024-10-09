@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación GPS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            border: 1px solid black;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ubicación GPS del Móvil</h1>
+    <p>Latitud: <span id="lat"></span></p>
+    <p>Longitud: <span id="long"></span></p>
+    <div id="map">El mapa aparecerá aquí</div>
+
+    <script>
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        function mostrarUbicacion(posicion) {
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+
+            document.getElementById('lat').textContent = latitud;
+            document.getElementById('long').textContent = longitud;
+
+            // Mostrar la ubicación en un mapa usando Google Maps
+            var map = document.getElementById('map');
+            var urlMapa = `https://maps.google.com/maps?q=${latitud},${longitud}&z=15&output=embed`;
+            map.innerHTML = `<iframe width="100%" height="100%" src="${urlMapa}" frameborder="0" allowfullscreen></iframe>`;
+        }
+
+        function mostrarError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("El usuario denegó el permiso para la geolocalización.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("La información de la ubicación no está disponible.");
+                    break;
+                case error.TIMEOUT:
+                    alert("La solicitud para obtener la ubicación ha caducado.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Se ha producido un error desconocido.");
+                    break;
+            }
+        }
+
+        // Llama a la función para obtener la ubicación
+        obtenerUbicacion();
+    </script>
+</body>
+</html>
