@@ -60,7 +60,7 @@
 
             function mostrarError(error) {
                 if (error.code === error.PERMISSION_DENIED) {
-                    document.getElementById('error-banner').classList.remove('hidden');
+                    document.getElementById('error-banner').style.display = 'block';
                     document.getElementById('location-table').style.display = 'none';
                     document.getElementById('map').style.display = 'none';
                 }
