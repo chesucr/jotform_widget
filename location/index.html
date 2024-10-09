@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Widget de Geolocalización</title>
+    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/style.css">
     <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
 </head>
 <body>
@@ -11,12 +12,16 @@
         <table id="location-table">
             <thead>
                 <tr>
+                    <th>Ría</th>
+                    <th>Polígono</th>
                     <th>Latitud</th>
                     <th>Longitud</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td id="ria">Cargando...</td>
+                    <td id="poligono">Cargando...</td>
                     <td id="latitud">Cargando...</td>
                     <td id="longitud">Cargando...</td>
                 </tr>
@@ -43,6 +48,7 @@
                 document.getElementById('latitud').innerHTML = latitud;
                 document.getElementById('longitud').innerHTML = longitud;
                 var ubicacionString = `{'lon': ${longitud}, 'lat': ${latitud}}`;
+                buscarCercano(latitud, longitud);
                 var map = document.getElementById('map');
                 var urlMapa = `https://maps.google.com/maps?q=${latitud},${longitud}&z=15&output=embed&maptype=satellite`;
                 map.innerHTML = `<iframe width="100%" height="100%" src="${urlMapa}" frameborder="0" allowfullscreen></iframe>`;
@@ -54,10 +60,61 @@
 
             function mostrarError(error) {
                 if (error.code === error.PERMISSION_DENIED) {
-                    document.getElementById('error-banner').style.display = 'block';
+                    document.getElementById('error-banner').classList.remove('hidden');
                     document.getElementById('location-table').style.display = 'none';
                     document.getElementById('map').style.display = 'none';
                 }
+            }
+
+            function buscarCercano(latitud, longitud) {
+                fetch('https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/loc_polygon.csv')
+                    .then(response => response.text())
+                    .then(data => procesarCSV(data, latitud, longitud));
+            }
+
+            function procesarCSV(data, latitud, longitud) {
+                const filas = data.split('\n').slice(1);
+                let cercano = null;
+                let distanciaMinima = Infinity;
+
+                filas.forEach(fila => {
+                    const columnas = fila.split(',');
+                    const lat = parseFloat(columnas[3]);
+                    const lon = parseFloat(columnas[2]);
+                    if (!isNaN(lat) && !isNaN(lon)) {
+                        const distancia = calcularDistancia(latitud, longitud, lat, lon);
+                        if (distancia < distanciaMinima) {
+                            distanciaMinima = distancia;
+                            cercano = {
+                                ria: columnas[0],
+                                poligono: columnas[1],
+                                lat: lat,
+                                lon: lon
+                            };
+                        }
+                    }
+                });
+
+                if (cercano) {
+                    document.getElementById('ria').innerHTML = cercano.ria;
+                    document.getElementById('poligono').innerHTML = cercano.poligono;
+                    document.getElementById('latitud').innerHTML = cercano.lat;
+                    document.getElementById('longitud').innerHTML = cercano.lon;
+                } else {
+                    document.getElementById('ria').innerHTML = "No disponible";
+                    document.getElementById('poligono').innerHTML = "No disponible";
+                }
+            }
+
+            function calcularDistancia(lat1, lon1, lat2, lon2) {
+                const R = 6371; // Radio de la Tierra en kilómetros
+                const dLat = (lat2 - lat1) * (Math.PI / 180);
+                const dLon = (lon2 - lon1) * (Math.PI / 180);
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                          Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                          Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c; // Distancia en kilómetros
             }
 
             obtenerUbicacion();
