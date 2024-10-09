@@ -9,6 +9,9 @@
     <div id="main">
         <h3>Tu Ubicación GPS</h3>
 
+        <!-- Banner de error para mostrar mensajes -->
+        <div id="error-banner" class="hidden">No se puede acceder a los datos de localización porque el usuario denegó el permiso en el navegador.</div>
+
         <!-- Tabla para mostrar latitud y longitud -->
         <table>
             <thead>
@@ -72,7 +75,8 @@
             function mostrarError(error) {
                 switch (error.code) {
                     case error.PERMISSION_DENIED:
-                        alert("El usuario denegó el permiso para la geolocalización.");
+                        // Mostrar el banner de error
+                        document.getElementById('error-banner').classList.remove('hidden');
                         break;
                     case error.POSITION_UNAVAILABLE:
                         alert("La información de la ubicación no está disponible.");

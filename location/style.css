@@ -1,19 +1,29 @@
+#error-banner {
+    background-color: #ffcccb;
+    color: #d8000c;
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
 table {
     width: 100%;
     text-align: center;
     border-collapse: collapse;
     margin-top: 20px;
 }
-
 th, td {
     border: 1px solid black;
     padding: 8px;
 }
-
 th {
     background-color: #f2f2f2;
 }
-
 
 #map {
     height: 300px;
