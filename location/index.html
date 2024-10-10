@@ -2,8 +2,48 @@
 <html>
 <head>
     <title>Widget de Geolocalización</title>
-    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/style.css">
     <script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
+    <style type="text/css" media="all">
+        #error-banner {
+            background-color: #DC2626;
+            color: white;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #A61E24;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #map {
+            height: 300px;
+            width: 100%;
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+
+
+    </style>
+
 </head>
 <body>
     <div id="main">
@@ -68,7 +108,7 @@
                 } else if (puntoEnPoligono(latitud, longitud, RIA_BETANZOS)) {
                     return "Ría de Betanzos";
                 } else {
-                    return "Fuera de las rías";
+                    return "out_of_ria";
                 }
             }
 
@@ -82,19 +122,24 @@
                 // Determinar en qué ría se encuentra el usuario
                 var ria = determinarRia(latitud, longitud);
                 console.log('RIA: ' + ria);
-                document.getElementById('ria').innerHTML = ria;
+                if (ria === 'out_of_ria') {
+                    mostrarErrorOutOfRia();
+                    JFCustomWidget.sendData({
+                        value: JSON.stringify({ error: 'out_of_ria' })
+                    });
+                } else {
+                    document.getElementById('ria').textContent = ria; // Usar textContent para evitar problemas de seguridad
+                    buscarCercano(latitud, longitud);
 
-                // Continuar con la lógica actual de buscar polígono cercano y mostrar mapa
-                buscarCercano(latitud, longitud);
+                    JFCustomWidget.sendData({
+                        value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria })
+                    });
+                }
+
                 var map = document.getElementById('map');
                 var urlMapa = `https://maps.google.com/maps?q=${latitud},${longitud}&z=15&output=embed&maptype=satellite`;
                 map.innerHTML = `<iframe width="100%" height="100%" src="${urlMapa}" frameborder="0" allowfullscreen></iframe>`;
 
-                var ubicacionString = `{'lon': ${longitud}, 'lat': ${latitud}, 'ria': '${ria}'}`;
-                var msg = {
-                    value: ubicacionString
-                };
-                JFCustomWidget.sendData(msg);
             }
 
             function obtenerUbicacion() {
@@ -116,15 +161,26 @@
                     document.getElementById('location-table').style.display = 'none';
                     document.getElementById('map').style.display = 'none';
 
-                    var msg = {
-                        value: "{'error_code': 'PERMISSION_DENIED'}"
-                    };
-                    JFCustomWidget.sendData(msg);
+                    JFCustomWidget.sendData(JSON.stringify({
+                        error: 'PERMISSION_DENIED'
+                    }));
                 } else {
-                    var msg = {
-                        value: `{'error_code': '{error.code}'}`
-                    };
+                    JFCustomWidget.sendData(JSON.stringify({
+                        error: error.code
+                    }));
+                }
+            }
+
+            function mostrarErrorOutOfRia(error) {
+                if (error.code === error.PERMISSION_DENIED) {
+                    document.getElementById('error-banner').style.display = 'block';
+                    document.getElementById('location-table').style.display = 'none';
+                    document.getElementById('map').style.display = 'none';
+
                     JFCustomWidget.sendData(msg);
+                    JFCustomWidget.sendData(JSON.stringify({
+                        error: 'OUT_OF_RIA'
+                    }));
                 }
             }
 
