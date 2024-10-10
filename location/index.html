@@ -123,7 +123,7 @@
                 var ria = determinarRia(latitud, longitud);
                 console.log('RIA: ' + ria);
                 if (ria === 'out_of_ria') {
-                    mostrarErrorOutOfRia();
+                    mostrarErrorOutOfRia({ error: 'out_of_ria' });
                     JFCustomWidget.sendData({
                         value: JSON.stringify({ error: 'out_of_ria' })
                     });
@@ -172,16 +172,13 @@
             }
 
             function mostrarErrorOutOfRia(error) {
-                if (error.code === error.PERMISSION_DENIED) {
-                    document.getElementById('error-banner').style.display = 'block';
-                    document.getElementById('location-table').style.display = 'none';
-                    document.getElementById('map').style.display = 'none';
-
-                    JFCustomWidget.sendData(msg);
-                    JFCustomWidget.sendData(JSON.stringify({
-                        error: 'OUT_OF_RIA'
-                    }));
-                }
+                document.getElementById('error-banner').innerHTML = `
+                    Tu localización no está dentro de ninguna ría
+                    o tu localización no es correcta.
+                    Debes elegir la localización manualmente.
+                `;
+                document.getElementById('location-table').style.display = 'none';
+                document.getElementById('map').style.display = 'none';
             }
 
             function buscarCercano(latitud, longitud) {
