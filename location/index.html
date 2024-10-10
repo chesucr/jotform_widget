@@ -63,6 +63,10 @@
                     return "Ría de Arousa";
                 } else if (puntoEnPoligono(latitud, longitud, RIA_MUROS_NOIA)) {
                     return "Ría de Muros y Noia";
+                } else if (puntoEnPoligono(latitud, longitud, RIA_VIGO)) {
+                    return "Ría de Vigo";
+                } else if (puntoEnPoligono(latitud, longitud, RIA_BETANZOS)) {
+                    return "Ría de Betanzos";
                 } else {
                     return "Fuera de las rías";
                 }
@@ -77,6 +81,7 @@
 
                 // Determinar en qué ría se encuentra el usuario
                 var ria = determinarRia(latitud, longitud);
+                console.log('RIA: ' + ria);
                 document.getElementById('ria').innerHTML = ria;
 
                 // Continuar con la lógica actual de buscar polígono cercano y mostrar mapa
