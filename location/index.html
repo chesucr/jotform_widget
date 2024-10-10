@@ -99,7 +99,7 @@
         const RIA_VIGO = [[-8.8992831, 42.1117719], [-8.8884684, 42.1117719], [-8.8843485, 42.1115172], [-8.8798853, 42.109225], [-8.8711306, 42.1138094], [-8.8670107, 42.1148281], [-8.8606593, 42.1209401], [-8.8525912, 42.1214494], [-8.8410899, 42.1135547], [-8.8330218, 42.1120266], [-8.8125941, 42.1143187], [-8.8134524, 42.121704], [-8.8198039, 42.1253963], [-8.8153407, 42.1377449], [-8.8200614, 42.1436001], [-8.8286444, 42.1499639], [-8.8315627, 42.1507275], [-8.8161131, 42.1596355], [-8.8089034, 42.1883872], [-8.7931105, 42.1941105], [-8.7728545, 42.2045384], [-8.7711379, 42.2210668], [-8.7368056, 42.2251347], [-8.7251326, 42.2378451], [-8.7076232, 42.2403869], [-8.7052199, 42.2475033], [-8.7029809, 42.254617], [-8.6990327, 42.2584286], [-8.6907929, 42.254617], [-8.6753434, 42.2643997], [-8.666417, 42.2767212], [-8.6543573, 42.2840134], [-8.6450875, 42.2884582], [-8.6277497, 42.2824894], [-8.6109269, 42.2845214], [-8.609382, 42.2887121], [-8.6162484, 42.2909979], [-8.6129869, 42.2955692], [-8.6128152, 42.3031872], [-8.6196817, 42.309281], [-8.6152185, 42.3146125], [-8.6086953, 42.3281933], [-8.6131585, 42.3313659], [-8.6097253, 42.3379645], [-8.6123002, 42.3505253], [-8.631183, 42.3525551], [-8.6419976, 42.3455775], [-8.6480058, 42.3379645], [-8.6445726, 42.3331426], [-8.6394227, 42.3323812], [-8.6401094, 42.3273049], [-8.6639703, 42.3179128], [-8.6620527, 42.3035172], [-8.6567312, 42.2980577], [-8.6622244, 42.2932327], [-8.6788755, 42.2923438], [-8.6867719, 42.2843435], [-8.6924368, 42.2806605], [-8.7022215, 42.2847245], [-8.7108045, 42.2783743], [-8.7162977, 42.2917089], [-8.7217909, 42.2865024], [-8.7353521, 42.2875184], [-8.7374979, 42.2793904], [-8.7374979, 42.2744369], [-8.7426477, 42.2727856], [-8.7504583, 42.269229], [-8.7552648, 42.2667519], [-8.7643629, 42.2603364], [-8.7788548, 42.2643802], [-8.785638, 42.2630629], [-8.7889425, 42.2559164], [-8.7898866, 42.2504211], [-8.7996713, 42.2511199], [-8.8085977, 42.2569011], [-8.8090269, 42.259061], [-8.8164941, 42.2607126], [-8.8188116, 42.2567741], [-8.8264505, 42.2529623], [-8.8322011, 42.2535341], [-8.832802, 42.2564564], [-8.8346902, 42.2583622], [-8.8497964, 42.2617289], [-8.8575476, 42.26209], [-8.8620966, 42.2548482], [-8.8616675, 42.2524976], [-8.8640707, 42.249448], [-8.8692206, 42.2542764], [-8.9144533, 42.2491939], [-8.903467, 42.2362316], [-8.9053553, 42.2174188], [-8.9060419, 42.1963113], [-8.8992831, 42.1117719]];
 
         // 2. Función para verificar si un punto está dentro de un polígono (ray-casting algorithm)
-        function puntoEnPoligono(lat, lon, poligono) {
+        function point_inside_polygon(lat, lon, poligono) {
             let dentro = false;
             for (let i = 0, j = poligono.length - 1; i < poligono.length; j = i++) {
                 let xi = poligono[i][1], yi = poligono[i][0]; // Latitud, Longitud
@@ -114,23 +114,23 @@
 
         // 3. Función para determinar en qué ría se encuentra el usuario
         function determinarRia(latitud, longitud) {
-            if (puntoEnPoligono(latitud, longitud, RIA_PONTEVEDRA)) {
+            if (point_inside_polygon(latitud, longitud, RIA_PONTEVEDRA)) {
                 return "Ría de Pontevedra";
-            } else if (puntoEnPoligono(latitud, longitud, RIA_AROUSA)) {
+            } else if (point_inside_polygon(latitud, longitud, RIA_AROUSA)) {
                 return "Ría de Arousa";
-            } else if (puntoEnPoligono(latitud, longitud, RIA_MUROS_NOIA)) {
+            } else if (point_inside_polygon(latitud, longitud, RIA_MUROS_NOIA)) {
                 return "Ría de Muros y Noia";
-            } else if (puntoEnPoligono(latitud, longitud, RIA_VIGO)) {
+            } else if (point_inside_polygon(latitud, longitud, RIA_VIGO)) {
                 return "Ría de Vigo";
-            } else if (puntoEnPoligono(latitud, longitud, RIA_BETANZOS)) {
+            } else if (point_inside_polygon(latitud, longitud, RIA_BETANZOS)) {
                 return "Ría de Betanzos";
             } else {
                 return "out_of_ria";
             }
         }
 
-        // Modificación en mostrarUbicacion para buscar si está dentro de una ría
-        function mostrarUbicacion(posicion) {
+        // Modificación en show_location para buscar si está dentro de una ría
+        function show_location(posicion) {
             var latitud = posicion.coords.latitude.toFixed(3);;
             var longitud = posicion.coords.longitude.toFixed(3);;
             document.getElementById('latitud').innerHTML = latitud;
@@ -140,17 +140,15 @@
             var ria = determinarRia(latitud, longitud);
             console.log('RIA: ' + ria);
             if (ria === 'out_of_ria') {
-                mostrarErrorOutOfRia({ error: 'out_of_ria' });
-                JFCustomWidget.sendData({
-                    value: JSON.stringify({ error: 'out_of_ria' })
-                });
+                show_error_out_of_ria({ error: 'out_of_ria' });
+                JFCustomWidget.sendData({value: ''});  // to force required value
             } else {
                 document.getElementById('ria').textContent = ria; // Usar textContent para evitar problemas de seguridad
                 buscarCercano(latitud, longitud, ria);
 
                 var polygon = document.getElementById('poligono').textContent; // TODO: check a possible asynchronouse problem?
                 document.getElementById('confirmation-banner').style.display = 'block';
-                document.getElementById('asterisk_required').style.display = 'block';
+                document.getElementById('asterisk_required').style.display = 'none';
                 JFCustomWidget.sendData({
                     value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria, polygon: polygon })
                 });
@@ -169,25 +167,27 @@
                     maximumAge: 0             // don't use cache
                 };
                 navigator.geolocation.getCurrentPosition(
-                    mostrarUbicacion, mostrarError, options
+                    show_location, show_error, options
                 );
             } else {
                 document.getElementById('error-banner').innerHTML = 'A xeolocalización non é soportada polo teu navegador';
                 document.getElementById('error-banner').style.display = 'block';
+                document.getElementById('asterisk_required').style.display = 'inline';
                 JFCustomWidget.sendData('');
             }
         }
 
-        function mostrarError(error) {
+        function show_error(error) {
             if (error.code === error.PERMISSION_DENIED) {
                 document.getElementById('error-banner').style.display = 'block';
                 document.getElementById('location-table').style.display = 'none';
                 document.getElementById('map').style.display = 'none';
             }
+            document.getElementById('asterisk_required').style.display = 'inline';
             JFCustomWidget.sendData('');
         }
 
-        function mostrarErrorOutOfRia() {
+        function show_error_out_of_ria() {
             document.getElementById('error-banner').innerHTML = `
                 Tu localización no está dentro de ninguna ría
                 o tu localización no es correcta.
@@ -198,6 +198,7 @@
             document.getElementById('ria').style.color = 'red'
             document.getElementById('poligono').textContent = 'Non dispoñible'
             document.getElementById('poligono').style.color = 'red'
+            document.getElementById('asterisk_required').style.display = 'inline';
         }
 
         function buscarCercano(latitud, longitud, ria) {
