@@ -56,11 +56,16 @@
                 border: 1px solid black;
                 margin-top: 20px;
             }
+
+            .form-required {
+                color: #dc2626;
+                margin-left: 4px;
+            }
         </style>
     </head>
     <body>
         <div id="main">
-            <h3>Tu Ubicación GPS <span id="asterisk_required" class="form-required">*</span></h3>
+            <h3>Tu Ubicación GPS<span id="asterisk_required" class="form-required">*</span></h3>
             <div id="error-banner" class="hidden">No se puede acceder a los datos de localización porque el usuario denegó el permiso en el navegador. En <a href="https://support.google.com/chrome/answer/142065?hl=es&co=GENIE.Platform%3DAndroid" target="_blank">este enlace</a> puedes leer unas instrucciones para activar la localización de nuevo.</div>
 
             <table id="location-table">
