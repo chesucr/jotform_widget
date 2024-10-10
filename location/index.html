@@ -20,6 +20,16 @@
                 display: none;
             }
 
+            #confirmation-banner {
+                background-color: #CCF9CB;
+                color: white;
+                padding: 10px;
+                margin: 20px 0;
+                border: 1px solid #a3f7a1;
+                border-radius: 5px;
+                display: none;
+            }
+
             .hidden {
                 display: none;
             }
@@ -68,8 +78,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div id="confirmation-banner" class="hidden">Este polígono é o que se vai a usar para rexistrar a incidencia. En caso de que non sexa o correcto, por favor, selecciónao a man.</div>
             <div id="map">
-                El mapa aparecerá aquí
+                O mapa aparecerá aquí
             </div>
         </div>
 
@@ -132,8 +143,10 @@
                     document.getElementById('ria').textContent = ria; // Usar textContent para evitar problemas de seguridad
                     buscarCercano(latitud, longitud);
 
+                    var polygon = document.getElementById('poligono').textContent; // TODO: check a possible asynchronouse problem?
+                    document.getElementById('confirmation-banner').style.display = 'block';
                     JFCustomWidget.sendData({
-                        value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria })
+                        value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria, polygon: polygon })
                     });
                 }
 
@@ -177,10 +190,11 @@
                     o tu localización no es correcta.
                     Debes elegir la localización manualmente.
                 `;
-                document.getElementById('ria').textContent = 'Fora das rías';
-                document.getElementById('ria').color = 'red'
-                document.getElementById('poligono').textContent = 'Fora das rías'
-                document.getElementById('poligono').color = 'red'
+                document.getElementById('error-banner').style.display = 'block';
+                document.getElementById('ria').textContent = 'Non dispoñible';
+                document.getElementById('ria').style.color = 'red'
+                document.getElementById('poligono').textContent = 'Non dispoñible'
+                document.getElementById('poligono').style.color = 'red'
             }
 
             function buscarCercano(latitud, longitud) {
@@ -218,8 +232,8 @@
                     document.getElementById('latitud').innerHTML = cercano.lat;
                     document.getElementById('longitud').innerHTML = cercano.lon;
                 } else {
-                    document.getElementById('ria').innerHTML = "No disponible";
-                    document.getElementById('poligono').innerHTML = "No disponible";
+                    document.getElementById('ria').innerHTML = "Non dispoñible";
+                    document.getElementById('poligono').innerHTML = "Non dispoñible";
                 }
             }
 
