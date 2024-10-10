@@ -36,7 +36,12 @@
         JFCustomWidget.subscribe("ready", function() {
             function obtenerUbicacion() {
                 if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError);
+                    var opciones = {
+                        enableHighAccuracy: true, // Usar alta precisión
+                        timeout: 10000,           // Tiempo máximo para obtener ubicación (10 segundos)
+                        maximumAge: 0             // No usar una ubicación almacenada en caché
+                    };
+                    navigator.geolocation.getCurrentPosition(mostrarUbicacion, mostrarError, opciones);
                 } else {
                     alert("La geolocalización no es soportada por este navegador.");
                 }
