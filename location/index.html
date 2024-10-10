@@ -171,12 +171,13 @@
                 }
             }
 
-            function mostrarErrorOutOfRia(error) {
+            function mostrarErrorOutOfRia() {
                 document.getElementById('error-banner').innerHTML = `
                     Tu localización no está dentro de ninguna ría
                     o tu localización no es correcta.
                     Debes elegir la localización manualmente.
                 `;
+                document.getElementById('error-banner').style.display = 'block',
                 document.getElementById('location-table').style.display = 'none';
                 document.getElementById('map').style.display = 'none';
             }
