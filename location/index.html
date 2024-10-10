@@ -63,36 +63,6 @@
             <h3>Tu Ubicación GPS</h3>
             <div id="error-banner" class="hidden">No se puede acceder a los datos de localización porque el usuario denegó el permiso en el navegador.</div>
 
-            <button id="bt_enable_loc" class="hidden">Activar Localización</button>
-            <p id="loc_state" class="hidden"></p>
-
-            <script>
-                document.getElementById('bt_enable_loc').addEventListener('click', function() {
-                    // Preguntar al usuario si quiere activar los permisos de localización
-                    if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(
-                            // Si se concede el permiso de localización
-                            function(position) {
-                                document.getElementById('loc_state').innerText = 'Localización activada. Recargando página...';
-                                setTimeout(() => {
-                                    location.reload();  // Recargar la página
-                                }, 2000);  // Espera 2 segundos antes de recargar
-                            },
-                            // Si se deniega el permiso o hay un error
-                            function(error) {
-                                if (error.code === error.PERMISSION_DENIED) {
-                                    document.getElementById('loc_state').innerText = 'Permisos de localización desactivados. Por favor, actívalos en la configuración del navegador y recarga la página.';
-                                } else {
-                                    document.getElementById('loc_state').innerText = 'Error obteniendo la localización: ' + error.message;
-                                }
-                            }
-                        );
-                    } else {
-                        document.getElementById('estado').innerText = 'Tu navegador no soporta la localización.';
-                    }
-                });
-            </script>
-
             <table id="location-table">
                 <tbody>
                     <tr>
@@ -207,8 +177,6 @@
                 document.getElementById('error-banner').style.display = 'block';
                 document.getElementById('location-table').style.display = 'none';
                 document.getElementById('map').style.display = 'none';
-                document.getElementById('bt_enable_loc').style.display = 'block';
-                document.getElementById('loc_state').style.display = 'block';
             }
             JFCustomWidget.sendData('');
         }
