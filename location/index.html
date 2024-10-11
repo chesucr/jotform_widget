@@ -150,9 +150,6 @@
                 var polygon = document.getElementById('polygon').textContent; // TODO: check a possible asynchronouse problem?
                 document.getElementById('confirmation-banner').style.display = 'block';
                 document.getElementById('asterisk_required').style.display = 'none';
-                JFCustomWidget.sendData({
-                    value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria, polygon: polygon })
-                });
             }
 
             var map = document.getElementById('map');
@@ -212,47 +209,49 @@
             document.getElementById('asterisk_required').style.display = 'inline';
         }
 
-        function find_closest(latitud, longitud, ria) {
-            fetch('https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/loc_polygon.csv')
-                .then(response => response.text())
-                .then(data => process_csv(data, latitud, longitud, ria));
-        }
-
-        function process_csv(data, latitud, longitud, ria) {
-            const rows = data.split('\n').slice(1);
-            let closest = null;
-            let min_distance = Infinity;
-
-            rows.forEach(fila => {
-                const columns = fila.split(',');
-                const nombreRia = columns[0].trim(); // ria is in the first column
-                const lat = parseFloat(columns[3]);
-                const lon = parseFloat(columns[2]);
-
-                if (nombreRia === ria && !isNaN(lat) && !isNaN(lon)) {
-                    const distance = get_distance(latitud, longitud, lat, lon);
-                    if (distance < min_distance) {
-                        min_distance = distance;
-                        closest = {
-                            ria: nombreRia,
-                            polygon: columns[1], // polygon name column
-                            lat: lat,
-                            lon: lon
-                        };
-                    }
-                }
-            });
-
-            if (closest) {
-                document.getElementById('ria').innerHTML = closest.ria;
-                document.getElementById('polygon').innerHTML = closest.polygon;
-                document.getElementById('latitud').innerHTML = closest.lat;
-                document.getElementById('longitud').innerHTML = closest.lon;
-            } else {
-                document.getElementById('ria').innerHTML = "Non dispoñible";
-                document.getElementById('polygon').innerHTML = "Non dispoñible";
+            function find_closest(latitud, longitud, ria) {
+                fetch('https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/loc_polygon.csv')
+                    .then(response => response.text())
+                    .then(data => process_csv(data, latitud, longitud, ria));
             }
-        }
+
+            function process_csv(data, latitud, longitud, ria) {
+                const rows = data.split('\n').slice(1);
+                let closest = null;
+                let min_distance = Infinity;
+
+                rows.forEach(fila => {
+                    const columns = fila.split(',');
+                    const nombreRia = columns[0].trim(); // ria is in the first column
+                    const lat = parseFloat(columns[3]);
+                    const lon = parseFloat(columns[2]);
+
+                    if (nombreRia === ria && !isNaN(lat) && !isNaN(lon)) {
+                        const distance = get_distance(latitud, longitud, lat, lon);
+                        if (distance < min_distance) {
+                            min_distance = distance;
+                            closest = {
+                                ria: nombreRia,
+                                polygon: columns[1], // polygon name column
+                                lat: lat,
+                                lon: lon
+                            };
+                        }
+                    }
+                });
+
+                if (closest) {
+                    document.getElementById('ria').innerHTML = closest.ria;
+                    document.getElementById('polygon').innerHTML = closest.polygon;
+                    JFCustomWidget.sendData({
+                        value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria, polygon: closest.polygon })
+                    });
+                } else {
+                    document.getElementById('ria').innerHTML = 'Non dispoñible';
+                    document.getElementById('polygon').innerHTML = 'Non dispoñible';
+                    JFCustomWidget.sendData({value: ''});
+                }
+            }
 
         function get_distance(lat1, lon1, lat2, lon2) {
             const R = 6371; // earth's radius in kms
