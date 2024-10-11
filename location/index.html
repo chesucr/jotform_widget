@@ -173,9 +173,9 @@
                 document.getElementById('location-table').style.display = 'none';
                 document.getElementById('map').style.display = 'none';
                 document.getElementById('asterisk_required').style.display = 'inline';
+                var contentHeight = document.documentElement.scrollHeight;
                 JFCustomWidget.requestFrameResize({
-                    // width: newWidth,
-                    height: 160
+                    height: contentHeight
                 });
                 JFCustomWidget.sendData('');
             }
@@ -186,9 +186,9 @@
                 document.getElementById('error-banner').style.display = 'block';
                 document.getElementById('location-table').style.display = 'none';
                 document.getElementById('map').style.display = 'none';
+                var contentHeight = document.documentElement.scrollHeight;
                 JFCustomWidget.requestFrameResize({
-                    // width: newWidth,
-                    height: 160
+                    height: contentHeight
                 });
             }
             document.getElementById('asterisk_required').style.display = 'inline';
