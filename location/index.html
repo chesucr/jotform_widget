@@ -69,9 +69,7 @@
     <body>
         <div id="main">
             <h3>A túa localización GPS<span id="asterisk_required" class="form-required">*</span></h3>
-            <div id="error-banner" class="hidden">No se puede acceder a los datos de localización porque el usuario denegó el permiso en el navegador. En <a href="https://support.google.com/chrome/answer/142065?hl=es&co=GENIE.Platform%3DAndroid" target="_blank">este enlace</a> puedes leer unas instrucciones para activar la localización de nuevo.</div>
-
-            <div id="error-banner" class="hidden">Non se pode acceder aos datos de localización porque o usuario denegou o permiso no navegador. <a href="https://support.google.com/chrome/answer/142065?hl=es&co=GENIE.Platform%3DAndroid" target="_blank">Neste ligazón</a> podes ler unhas instrucións para activar de novo a localización.</div>
+            <div id="error-banner" class="hidden">Localización non dispoñible por permiso denegado. Instrucións para activar localización <a href="https://support.google.com/chrome/answer/142065?hl=es&co=GENIE.Platform%3DAndroid" target="_blank">nesta ligazón</a>.</div>
 
             <table id="location-table">
                 <tbody>
@@ -223,17 +221,17 @@
 
                 rows.forEach(fila => {
                     const columns = fila.split(',');
-                    const nombreRia = columns[0].trim(); // ria is in the first column
+                    const ria_name = columns[0].trim(); // ria is in the first column
                     const lat = parseFloat(columns[3]);
                     const lon = parseFloat(columns[2]);
 
-                    if (nombreRia === ria && !isNaN(lat) && !isNaN(lon)) {
+                    if (ria_name === ria && !isNaN(lat) && !isNaN(lon)) {
                         const distance = get_distance(latitud, longitud, lat, lon);
                         if (distance < min_distance) {
                             min_distance = distance;
                             closest = {
-                                ria: nombreRia,
-                                polygon: columns[1], // polygon name column
+                                loc_ria: ria_name,
+                                loc_polygon: columns[1], // polygon name column
                                 lat: lat,
                                 lon: lon
                             };
@@ -242,10 +240,13 @@
                 });
 
                 if (closest) {
-                    document.getElementById('ria').innerHTML = closest.ria;
-                    document.getElementById('polygon').innerHTML = closest.polygon;
+                    document.getElementById('ria').innerHTML = closest.loc_ria;
+                    document.getElementById('polygon').innerHTML = closest.loc_polygon;
                     JFCustomWidget.sendData({
-                        value: JSON.stringify({ lon: longitud, lat: latitud, ria: ria, polygon: closest.polygon })
+                        value: JSON.stringify({
+                            lon: longitud, lat: latitud,
+                            loc_ria: closest.loc_ria, loc_polygon: closest.polygon
+                        })
                     });
                 } else {
                     document.getElementById('ria').innerHTML = 'Non dispoñible';
