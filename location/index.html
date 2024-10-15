@@ -244,8 +244,10 @@
                     document.getElementById('polygon').innerHTML = closest.loc_polygon;
                     JFCustomWidget.sendData({
                         value: JSON.stringify({
-                            lon: longitud, lat: latitud,
-                            loc_ria: closest.loc_ria, loc_polygon: closest.polygon
+                            lon: longitud,
+                            lat: latitud,
+                            loc_ria: closest.loc_ria,
+                            loc_polygon: closest.loc_polygon
                         })
                     });
                 } else {
