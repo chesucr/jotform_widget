@@ -1,0 +1,192 @@
+/* reduce form padding for phones */
+@media (max-width: 768px) {
+    ul.form-section {
+        padding: 0px 15px !important;
+    }
+}
+
+/* para que la cabecera se redimensione bien en el movil */
+/* y fondo blanco */
+img.form-page-cover-image {
+    height : auto;
+}
+
+/* por alguna razon aparecía el tamaño más grande de los textareas */
+.form-textarea {
+  font-size: 0.8em !important;
+}
+
+/* para ocultar el placeholder en el checklist */
+input[name="q13_tipoDe[other]"]::placeholder {
+    color : transparent;
+}
+
+/* algunos labels mas grandes */
+label#label_69, label#label_124, #id_79, #label_79,
+ #label_80, #label_85, #label_76, #label_70, #label_71,
+ #label_181, #label_100, #label_114, #label_127, #label_126,
+ #label_117, #label_119, #label_120, #label_125,
+ #label_60, #label_86, #label_87,
+ #label_128, #label_129, #label_130, #label_132, #label_133 {
+    font-size : 1.25em !important;
+    font-weight : 600 !important;
+    line-height : 1.45 !important;
+}
+
+/* ajustar campo "Sobre a Incidencia" */
+
+#id_111 {
+     margin-bottom: -15px;
+}
+
+#input_111 {
+  display: none !important;
+}
+
+#label_111 {
+  margin-bottom: -5px;
+  font-size : 1.5em;
+  font-weight : 600;
+  line-height : 1.45;
+}
+
+/* traduccion del error de required fields */
+.error-navigation-container .error-navigation-inner {
+    padding: 12px;
+}
+
+.error-navigation-message {
+    color: transparent;
+    position: relative;
+    display: block;
+    width: 190px;
+}
+
+.form-error-message .error-navigation-message::after {
+    content: "Este campo é obrigatorio.";
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.error-navigation-container .error-navigation-message::after {
+    content: "Campos obrigatorios sen cubrir.";
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+
+.error-navigation-container .error-navigation-message {
+    left: 43px !important;
+}
+
+.error-navigation-container .error-navigation-message strong {
+    position: absolute !important;
+    left: -37px !important;
+    top: -3px !important;
+}
+
+.error-navigation-next-button {
+    height: 40px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #fff;
+    color: #2c3345;
+    position: relative;
+    overflow: hidden;
+    z-index: 9999;
+    width: 130px;
+    margin-right: 20px;
+}
+
+.error-navigation-next-button::before {
+    content: "Ver campos";
+    display: block;
+    height: 100%;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #fff;
+    color: #2c3345;
+    padding-top: 10px;
+}
+
+.error-navigation-next-button::before {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* para moviles */
+
+@media (max-width: 768px) {
+    .error-navigation-container .error-navigation-inner {
+        position: relative;
+        width: 96%;
+        height: 100px;
+    }
+
+    .error-navigation-container .error-navigation-message {
+        position: absolute;
+        top: 0;
+        left: 40px !important;
+        width: 90%;
+        height: 60px;
+        padding-top: 3px;
+        margin-top: 11px;
+    }
+
+    .error-navigation-container .error-navigation-next-button {
+        position: absolute;
+        top: 47px;
+        left: 41px;
+        width: 37%;
+        height: 38px;
+    }
+
+    .error-navigation-container .error-navigation-message strong {
+        position: absolute !important;
+        left: -33px !important;
+    }
+
+}
+
+/* ocultar mensaje de que está correcto */
+.is-success {
+    display: none;
+}
+
+/* no se porque tengo que hacer esta corrección */
+#label_79 {
+    font-size : 1em;
+    font-weight : 600;
+}
+
+/* to hide the agent information */
+#id_104 {
+    display: none !important;
+}
+
+.form-label.form-label-auto {
+  display: block;
+  float: none;
+  text-align: left;
+  width: 100%;
+}
+
+/* ocultar parent id */
+/* to hide the agent information */
+#id_115 {
+    display : none !important;
+}
