@@ -69,7 +69,7 @@
     <body>
         <div id="main">
             <h3>Por GPS<span id="asterisk_required" class="form-required">*</span></h3>
-            <div id="error-banner" class="hidden">Localización non dispoñible por permiso denegado. Instrucións para activar localización <a href="https://support.google.com/chrome/answer/142065?hl=es&co=GENIE.Platform%3DAndroid" target="_blank">nesta ligazón</a>.</div>
+            <div id="error-banner" class="hidden"></div>
 
             <table id="location-table">
                 <tbody>
@@ -185,16 +185,33 @@
         }
 
         function show_error(error) {
-            if (error.code === error.PERMISSION_DENIED) {
-                document.getElementById('error-banner').style.display = 'block';
-                document.getElementById('location-table').style.display = 'none';
-                document.getElementById('map').style.display = 'none';
-                JFCustomWidget.requestFrameResize({
-                    // width: newWidth,
-                    height: 210
-                });
+            const url = 'https://redeira.iim.csic.es/cubrir-a-enquisa/#por_gps';
 
+            const encodedUrl = encodeURIComponent(url);
+            const error_banner = document.getElementById('error-banner');
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    error_banner.innerHTML = `Localización non dispoñible por permiso denegado. Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`;
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    error_banner.innerHTML = `Localización non dispoñible. Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`
+                    break;
+                case error.TIMEOUT:
+                    error_banner.innerHTML = "A solicitude para obter a localización do usuario esgotou o tempo.";
+                    break;
+                default:
+                    error_banner.innerHTML = `Produciuse un erro descoñecido ó intentar obter a localización. Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`;
+                    break;
             }
+
+            document.getElementById('error-banner').style.display = 'block';
+            document.getElementById('location-table').style.display = 'none';
+            document.getElementById('map').style.display = 'none';
+            JFCustomWidget.requestFrameResize({
+                // width: newWidth,
+                height: 210
+            });
+
             document.getElementById('asterisk_required').style.display = 'inline';
             JFCustomWidget.sendData('');
         }
