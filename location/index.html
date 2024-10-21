@@ -34,7 +34,7 @@
                 display: none;
             }
 
-            table {
+            /* table {
                 width: 100%;
                 text-align: center;
                 border-collapse: collapse;
@@ -48,6 +48,33 @@
 
             th {
                 background-color: #f2f2f2;
+            } */
+
+            #location-container {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .row div {
+                flex: 1 1 45%;
+                padding: 8px;
+                box-sizing: border-box;
+                word-wrap: break-word;
+            }
+
+            @media (max-width: 768px) {
+                .row div {
+                    flex: 1 1 100%;
+                    font-size: 14px;
+                }
             }
 
             #map {
@@ -71,22 +98,21 @@
             <h3>Por GPS<span id="asterisk_required" class="form-required">*</span></h3>
             <div id="error-banner" class="hidden"></div>
 
-            <table id="location-table">
-                <tbody>
-                    <tr>
-                        <td><strong>Latitude</strong></td>
-                        <td id="latitud">Cargando...</td>
-                        <td><strong>Lonxitude</strong></td>
-                        <td id="longitud">Cargando...</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ría</strong></td>
-                        <td id="ria">Cargando...</td>
-                        <td><strong>Polígono</strong></td>
-                        <td id="polygon">Cargando...</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id="location-container">
+                <div class="row">
+                    <div><strong>Latitude</strong></div>
+                    <div id="latitud">Cargando...</div>
+                    <div><strong>Longitude</strong></div>
+                    <div id="longitud">Cargando...</div>
+                </div>
+                <div class="row">
+                    <div><strong>Ría</strong></div>
+                    <div id="ria">Cargando...</div>
+                    <div><strong>Polígono</strong></div>
+                    <div id="polygon">Cargando...</div>
+                </div>
+            </div>
+
             <div id="confirmation-banner" class="hidden">Este polígono é o que se vai a usar para rexistrar a incidencia. En caso de que non sexa o correcto, por favor, <a href="#" onclick="manual_selection(); return false;">selecciónao a man</a>.</div>
             <div id="map">
                 O mapa aparecerá aquí
