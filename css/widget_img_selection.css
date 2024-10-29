@@ -61,9 +61,28 @@ button.prevOption::after {
     padding: 10px;
 }
 
-#imagesContainer ul.options li img, #imagesContainer ul.results li img {
+#imagesContainer ul.results li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    min-height: 140px !important;
+    text-align: center;
+    position: relative;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+#imagesContainer ul.options li img {
     width: 110px;
     height: 110px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+#imagesContainer ul.results li img {
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 14px;
 }
