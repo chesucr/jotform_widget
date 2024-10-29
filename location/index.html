@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <div id="confirmation-banner" class="hidden"><b>Estás neste polígono?</b> Se non é así, por favor, <a href="#" onclick="manual_selection(); return false;">selecciónao a man</a>.</div>
+            <div id="confirmation-banner" class="hidden"><b>Estás neste polígono?</b> Se non é así, por favor, <a href="javascript:void(0);" onclick="manual_selection(); return false;">selecciónao a man</a>.</div>
             <div id="map">
                 O mapa aparecerá aquí
             </div>
@@ -119,6 +119,7 @@
     <script type="text/javascript">
 
         function manual_selection() {
+            console.log('MANUAL SELECTION');
             JFCustomWidget.sendData({value: 'manual_selection'});
         }
 
@@ -128,6 +129,8 @@
         const RIA_MUROS_NOIA = [[-9.0850486, 42.5738174], [-9.0665092, 42.5925236], [-9.0349235, 42.6359813], [-9.0356101, 42.6672925], [-9.0156974, 42.703634], [-9.0055245, 42.7109873], [-9.0055245, 42.7241039], [-8.9924782, 42.7268782], [-8.9873284, 42.7397392], [-8.9646691, 42.7389828], [-8.946473, 42.7503287], [-8.9457863, 42.7576394], [-8.9330834, 42.76999], [-8.9238137, 42.7818342], [-8.9148873, 42.7876295], [-8.901841, 42.7828421], [-8.892228, 42.7750304], [-8.8846749, 42.784102], [-8.8915413, 42.7936761], [-8.8946312, 42.8048861], [-8.8932579, 42.8119385], [-8.8812416, 42.8097977], [-8.8750618, 42.8163459], [-8.8719719, 42.8240265], [-8.8814133, 42.8298178], [-8.8833016, 42.8187383], [-8.8877648, 42.8193679], [-8.8932579, 42.8291884], [-8.9004677, 42.8332168], [-8.9097374, 42.8306991], [-8.911454, 42.8241524], [-8.9121407, 42.8142052], [-8.9121407, 42.8031229], [-8.9239853, 42.800352], [-8.9305084, 42.8099236], [-8.9432114, 42.8038786], [-8.9514511, 42.79418], [-8.9596715, 42.7836587], [-8.9723744, 42.8005386], [-8.9888539, 42.7952484], [-8.9840474, 42.7829028], [-8.9917047, 42.7817394], [-9.014364, 42.7865269], [-9.0084196, 42.7944768], [-9.0145994, 42.8058125], [-9.0248991, 42.8032937], [-9.0441252, 42.7890601], [-9.0672995, 42.7904458], [-9.0685011, 42.7803672], [-9.0564848, 42.771673], [-9.0506744, 42.7710737], [-9.0584849, 42.7654029], [-9.0603732, 42.7609919], [-9.0764829, 42.758987], [-9.0824052, 42.7516135], [-9.0792294, 42.7431044], [-9.0850659, 42.7391961], [-9.0878125, 42.7400787], [-9.0850486, 42.5738174]];
         const RIA_BETANZOS = [[-8.346838, 43.3946175], [-8.3073559, 43.4006045], [-8.2987729, 43.380895], [-8.2730236, 43.3831407], [-8.2541409, 43.3616782], [-8.2556528, 43.3502874], [-8.2415766, 43.3393016], [-8.2316202, 43.3407998], [-8.2237238, 43.3283139], [-8.2137674, 43.3248173], [-8.1983179, 43.3313107], [-8.2017511, 43.351286], [-8.2031244, 43.3715043], [-8.2120508, 43.3819852], [-8.2072443, 43.3927138], [-8.2029751, 43.4077341], [-8.1801441, 43.4101035], [-8.1571415, 43.3983802], [-8.1464985, 43.4118493], [-8.1566265, 43.4208271], [-8.1775692, 43.4225726], [-8.1955937, 43.4293049], [-8.2141331, 43.4225726], [-8.2230595, 43.4306762], [-8.248122, 43.4305515], [-8.2479504, 43.4233207], [-8.2557097, 43.4235704], [-8.2725325, 43.4360368], [-8.2845488, 43.4412719], [-8.2945052, 43.4382805], [-8.3024016, 43.4430168], [-8.3144179, 43.4442632], [-8.346838, 43.3946175]];
         const RIA_VIGO = [[-8.8992831, 42.1117719], [-8.8884684, 42.1117719], [-8.8843485, 42.1115172], [-8.8798853, 42.109225], [-8.8711306, 42.1138094], [-8.8670107, 42.1148281], [-8.8606593, 42.1209401], [-8.8525912, 42.1214494], [-8.8410899, 42.1135547], [-8.8330218, 42.1120266], [-8.8125941, 42.1143187], [-8.8134524, 42.121704], [-8.8198039, 42.1253963], [-8.8153407, 42.1377449], [-8.8200614, 42.1436001], [-8.8286444, 42.1499639], [-8.8315627, 42.1507275], [-8.8161131, 42.1596355], [-8.8089034, 42.1883872], [-8.7931105, 42.1941105], [-8.7728545, 42.2045384], [-8.7711379, 42.2210668], [-8.7368056, 42.2251347], [-8.7251326, 42.2378451], [-8.7076232, 42.2403869], [-8.7052199, 42.2475033], [-8.7029809, 42.254617], [-8.6990327, 42.2584286], [-8.6907929, 42.254617], [-8.6753434, 42.2643997], [-8.666417, 42.2767212], [-8.6543573, 42.2840134], [-8.6450875, 42.2884582], [-8.6277497, 42.2824894], [-8.6109269, 42.2845214], [-8.609382, 42.2887121], [-8.6162484, 42.2909979], [-8.6129869, 42.2955692], [-8.6128152, 42.3031872], [-8.6196817, 42.309281], [-8.6152185, 42.3146125], [-8.6086953, 42.3281933], [-8.6131585, 42.3313659], [-8.6097253, 42.3379645], [-8.6123002, 42.3505253], [-8.631183, 42.3525551], [-8.6419976, 42.3455775], [-8.6480058, 42.3379645], [-8.6445726, 42.3331426], [-8.6394227, 42.3323812], [-8.6401094, 42.3273049], [-8.6639703, 42.3179128], [-8.6620527, 42.3035172], [-8.6567312, 42.2980577], [-8.6622244, 42.2932327], [-8.6788755, 42.2923438], [-8.6867719, 42.2843435], [-8.6924368, 42.2806605], [-8.7022215, 42.2847245], [-8.7108045, 42.2783743], [-8.7162977, 42.2917089], [-8.7217909, 42.2865024], [-8.7353521, 42.2875184], [-8.7374979, 42.2793904], [-8.7374979, 42.2744369], [-8.7426477, 42.2727856], [-8.7504583, 42.269229], [-8.7552648, 42.2667519], [-8.7643629, 42.2603364], [-8.7788548, 42.2643802], [-8.785638, 42.2630629], [-8.7889425, 42.2559164], [-8.7898866, 42.2504211], [-8.7996713, 42.2511199], [-8.8085977, 42.2569011], [-8.8090269, 42.259061], [-8.8164941, 42.2607126], [-8.8188116, 42.2567741], [-8.8264505, 42.2529623], [-8.8322011, 42.2535341], [-8.832802, 42.2564564], [-8.8346902, 42.2583622], [-8.8497964, 42.2617289], [-8.8575476, 42.26209], [-8.8620966, 42.2548482], [-8.8616675, 42.2524976], [-8.8640707, 42.249448], [-8.8692206, 42.2542764], [-8.9144533, 42.2491939], [-8.903467, 42.2362316], [-8.9053553, 42.2174188], [-8.9060419, 42.1963113], [-8.8992831, 42.1117719]];
+
+        const manual_msg = 'Por favor, <a href="javascript:void(0);" onclick="manual_selection(); return false;">selecciónaa a man</a>.'
 
         function point_inside_ria(lat, lon, polygon) {
             let dentro = false;
@@ -168,7 +171,7 @@
             console.log('RIA: ' + ria);
             if (ria === 'out_of_ria') {
                 show_error_out_of_ria({ error: 'out_of_ria' });
-                JFCustomWidget.sendData({value: ''});  // to force required field, jotform should complain
+                JFCustomWidget.sendData('');  // to force required field, jotform should complain
             } else {
                 document.getElementById('ria').textContent = ria; // Usar textContent para evitar problemas de seguridad
                 find_closest(latitud, longitud, ria);
@@ -212,18 +215,31 @@
 
             const encodedUrl = encodeURIComponent(url);
             const error_banner = document.getElementById('error-banner');
+            const gps_instructions = `Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`
             switch(error.code) {
                 case error.PERMISSION_DENIED:
-                    error_banner.innerHTML = `Localización non dispoñible por permiso denegado. Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`;
+                    error_banner.innerHTML = `
+                        Localización non dispoñible por permiso denegado.
+                        ${gps_instructions} ${manual_msg}
+                    `;
                     break;
                 case error.POSITION_UNAVAILABLE:
-                    error_banner.innerHTML = `Localización non dispoñible. Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`
+                    error_banner.innerHTML = `
+                        Localización non dispoñible.
+                        ${gps_instructions} ${manual_msg}
+                    `;
                     break;
                 case error.TIMEOUT:
-                    error_banner.innerHTML = "A solicitude para obter a localización do usuario esgotou o tempo.";
+                    error_banner.innerHTML = `
+                        A solicitude para obter a túa localización esgotou o tempo.
+                        ${manual_msg}
+                    `;
                     break;
                 default:
-                    error_banner.innerHTML = `Produciuse un erro descoñecido ó intentar obter a localización. Instrucións para activar localización <a href="${url}" target="_blank">nesta ligazón</a>.`;
+                    error_banner.innerHTML = `
+                        Produciuse un erro descoñecido ó intentar obter a localización.
+                        ${gps_instructions} ${manual_msg}
+                    `;
                     break;
             }
 
@@ -243,7 +259,7 @@
             document.getElementById('error-banner').innerHTML = `
                 A túa localización non está dentro de ningunha ría
                 ou a túa localización non é correcta.
-                Debes elixir a localización manualmente.
+                ${manual_msg}
             `;
             document.getElementById('error-banner').style.display = 'block';
             document.getElementById('ria').textContent = 'Non dispoñible';
@@ -253,54 +269,54 @@
             document.getElementById('asterisk_required').style.display = 'inline';
         }
 
-            function find_closest(latitud, longitud, ria) {
-                fetch('https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/loc_polygon.csv')
-                    .then(response => response.text())
-                    .then(data => process_csv(data, latitud, longitud, ria));
-            }
+        function find_closest(latitud, longitud, ria) {
+            fetch('https://raw.githubusercontent.com/chesucr/jotform_widget/refs/heads/gh-pages/location/loc_polygon.csv')
+                .then(response => response.text())
+                .then(data => process_csv(data, latitud, longitud, ria));
+        }
 
-            function process_csv(data, latitud, longitud, ria) {
-                const rows = data.split('\n').slice(1);
-                let closest = null;
-                let min_distance = Infinity;
+        function process_csv(data, latitud, longitud, ria) {
+            const rows = data.split('\n').slice(1);
+            let closest = null;
+            let min_distance = Infinity;
 
-                rows.forEach(fila => {
-                    const columns = fila.split(',');
-                    const ria_name = columns[0].trim(); // ria is in the first column
-                    const lat = parseFloat(columns[3]);
-                    const lon = parseFloat(columns[2]);
+            rows.forEach(fila => {
+                const columns = fila.split(',');
+                const ria_name = columns[0].trim(); // ria is in the first column
+                const lat = parseFloat(columns[3]);
+                const lon = parseFloat(columns[2]);
 
-                    if (ria_name === ria && !isNaN(lat) && !isNaN(lon)) {
-                        const distance = get_distance(latitud, longitud, lat, lon);
-                        if (distance < min_distance) {
-                            min_distance = distance;
-                            closest = {
-                                loc_ria: ria_name,
-                                loc_polygon: columns[1], // polygon name column
-                                lat: lat,
-                                lon: lon
-                            };
-                        }
+                if (ria_name === ria && !isNaN(lat) && !isNaN(lon)) {
+                    const distance = get_distance(latitud, longitud, lat, lon);
+                    if (distance < min_distance) {
+                        min_distance = distance;
+                        closest = {
+                            loc_ria: ria_name,
+                            loc_polygon: columns[1], // polygon name column
+                            lat: lat,
+                            lon: lon
+                        };
                     }
-                });
-
-                if (closest) {
-                    document.getElementById('ria').innerHTML = closest.loc_ria;
-                    document.getElementById('polygon').innerHTML = closest.loc_polygon;
-                    JFCustomWidget.sendData({
-                        value: JSON.stringify({
-                            lon: longitud,
-                            lat: latitud,
-                            loc_ria: closest.loc_ria,
-                            loc_polygon: closest.loc_polygon
-                        })
-                    });
-                } else {
-                    document.getElementById('ria').innerHTML = 'Non dispoñible';
-                    document.getElementById('polygon').innerHTML = 'Non dispoñible';
-                    JFCustomWidget.sendData({value: ''});
                 }
+            });
+
+            if (closest) {
+                document.getElementById('ria').innerHTML = closest.loc_ria;
+                document.getElementById('polygon').innerHTML = closest.loc_polygon;
+                JFCustomWidget.sendData({
+                    value: JSON.stringify({
+                        lon: longitud,
+                        lat: latitud,
+                        loc_ria: closest.loc_ria,
+                        loc_polygon: closest.loc_polygon
+                    })
+                });
+            } else {
+                document.getElementById('ria').innerHTML = 'Non dispoñible';
+                document.getElementById('polygon').innerHTML = 'Non dispoñible';
+                JFCustomWidget.sendData('');
             }
+        }
 
         function get_distance(lat1, lon1, lat2, lon2) {
             const R = 6371; // earth's radius in kms
