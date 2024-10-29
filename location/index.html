@@ -161,9 +161,9 @@
             }
         }
 
-        function show_location(posicion) {
-            var latitud = posicion.coords.latitude.toFixed(3);;
-            var longitud = posicion.coords.longitude.toFixed(3);;
+        function show_location(position) {
+            var latitud = position.coords.latitude.toFixed(3);;
+            var longitud = position.coords.longitude.toFixed(3);;
             document.getElementById('latitud').innerHTML = latitud;
             document.getElementById('longitud').innerHTML = longitud;
 
@@ -171,7 +171,7 @@
             console.log('RIA: ' + ria);
             if (ria === 'out_of_ria') {
                 show_error_out_of_ria({ error: 'out_of_ria' });
-                JFCustomWidget.sendData('');  // to force required field, jotform should complain
+                JFCustomWidget.sendData({value: ''});  // to force required field, jotform should complain
             } else {
                 document.getElementById('ria').textContent = ria; // Usar textContent para evitar problemas de seguridad
                 find_closest(latitud, longitud, ria);
@@ -193,6 +193,10 @@
                     timeout: 10000,           // 10 seconds
                     maximumAge: 0             // don't use cache
                 };
+
+                // navigator.geolocation.watchPostition also exists to update location multiple times
+                // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition
+
                 navigator.geolocation.getCurrentPosition(
                     show_location, show_error, options
                 );
@@ -206,7 +210,7 @@
                     // width: newWidth,
                     height: 210
                 });
-                JFCustomWidget.sendData('');
+                JFCustomWidget.sendData({value: ''});
             }
         }
 
@@ -252,7 +256,7 @@
             });
 
             document.getElementById('asterisk_required').style.display = 'inline';
-            JFCustomWidget.sendData('');
+            JFCustomWidget.sendData({value: ''});
         }
 
         function show_error_out_of_ria() {
@@ -314,7 +318,7 @@
             } else {
                 document.getElementById('ria').innerHTML = 'Non dispoñible';
                 document.getElementById('polygon').innerHTML = 'Non dispoñible';
-                JFCustomWidget.sendData('');
+                JFCustomWidget.sendData({value: ''});
             }
         }
 
