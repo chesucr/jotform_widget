@@ -1,25 +1,3 @@
-#imagesContainer>h1 {
-    display: none !important;
-}
-
-.results>li>i:nth-of-type(1),
-.results>li>br:nth-of-type(1) {
-    display: none !important;
-}
-
-.results li, .options li {
-    padding: 10px 10px 0px 10px !important;
-}
-
-.results b {
-    font-weight: normal;
-}
-
-.results li {
-    background-color: #2F69FF !important;
-    color: white !important;
-}
-
 button.prevOption {
     background-color: #4CAF50;
     border: none;
@@ -35,12 +13,7 @@ button.prevOption {
     text-shadow: none !important;
 
     position: relative;
-   text-indent: -450px;
-}
-
-.form-input-wide {
-    font-family: Inter, sans-serif !important;
-    font-weight: normal !important;
+    text-indent: -450px;
 }
 
 button.prevOption::after {
@@ -50,11 +23,64 @@ button.prevOption::after {
     top: 12px;
 }
 
-.options li:last-child, .results li:last-child {
-    margin-right: 30px !important;
+#imagesContainer>h1 {
+    display: none !important;
 }
 
-.options img, .results img  {
-    width: 230px;
-    height: 230px;
+.options>li>i:nth-of-type(1), .options>li>br:nth-of-type(1) {
+    display: none !important;
+}
+
+.results>li>i:nth-of-type(1), .results>li>br {
+    display: none !important;
+}
+
+.results b {
+    font-weight: normal;
+}
+
+.results li {
+    background-color: #2F69FF !important;
+    color: white !important;
+}
+
+#imagesContainer ul.options, #imagesContainer ul.results {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#imagesContainer ul.options li, #imagesContainer ul.results li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    min-height: 140px !important;
+    text-align: center;
+    position: relative;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+#imagesContainer ul.options li img, #imagesContainer ul.results li img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+#imagesContainer ul.options li span, #imagesContainer ul.results li b {
+    display: block;
+    max-height: 4.1em; /* Limita a 2-3 líneas de texto */
+    overflow: hidden;
+    word-wrap: break-word;
+    line-height: 1.2em;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-top: 0px;
+    text-align: center;
+}
+
+#imagesContainer ul.options li:nth-child(2) span,
+#imagesContainer ul.options li:nth-child(6) span {
+    font-style: italic;
 }
